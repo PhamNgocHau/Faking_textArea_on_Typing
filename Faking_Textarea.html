@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <h1>TYPE anything slowly</h1>
+    <textarea id="txt" cols="50" rows="10" onkeydown="typeTexttArea()"></textarea>
+
+    <script>
+        let tab = '';
+        let strText = new Array(' ', 'T', 'ô', 'i', ' ', 'L', 'à', ' ', 'M', 'ộ', 't', ' ', 'D', 'e', 'v', ' ', 'L', 'e', 'g', 'e', 'n', 'd', '!', '!', '!');
+
+        function typeTexttArea() {
+            let text = document.getElementById('txt').value;
+            let j = text.length;
+            if (j > 0) {
+                    for (var i = 1; i <= j; i++) {
+                    tab += strText[i];
+                    if (i === 23) {
+                        document.getElementById('txt').value = tab;
+                        tab='';
+                    }
+                }
+            }
+            document.getElementById('txt').value = tab;
+            tab = '';
+            setTimeout(typeTexttArea, 1);
+        }
+    </script>
+</div>
+</body>
+</html>
